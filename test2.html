@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  
+  <body>
+  
+    <h1>
+      File and JS Testing
+    </h1>
+    
+    <script>
+      var textfile = null;
+      
+        makeTextFile = function(text) {
+          var data = new Blob([text], {type: 'text/plain'}];
+          // This is to avoid memory leaks
+          if (textfile !== null) {
+            window.URL.revokeObjectURL(textfile)
+          }
+            
+          textfile = window.URL.createObjectURL(data);
+          return textfile;
+        }
+    </script>
+  </body>
+  
+</html>
